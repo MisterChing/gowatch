@@ -1,4 +1,4 @@
-module github.com/silenceper/gowatch
+module github.com/MisterChing/gowatch
 
 go 1.14
 
