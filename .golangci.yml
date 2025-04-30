@@ -1,9 +1,5 @@
 version: "2"
-run:
-  # default concurrency is a available CPU number
-  concurrency: 4
-  # timeout for analysis, e.g. 30s, 5m, default is 1m
-  deadline: 10m
+
 linters:
   default: none
   # This list of linters is not a recommendation (same thing for all this configuration file).
