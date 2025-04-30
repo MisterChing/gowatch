@@ -1,56 +1,34 @@
+version: "2"
+
 linters:
-  # please, do not use `enable-all`: it's deprecated and will be removed soon.
-  # inverted configuration with `enable-all` and `disable` is not scalable during updates of golangci-lint
-  disable-all: true
+  default: none
+  # This list of linters is not a recommendation (same thing for all this configuration file).
+  # We intentionally use a limited set of linters.
+  # See the comment on top of this file.
   enable:
     - bodyclose
-    - deadcode
-    - depguard
+    - copyloopvar
     - dogsled
     - dupl
     - errcheck
+    - errorlint
     - funlen
+    - gocheckcompilerdirectives
     - goconst
     - gocritic
     - gocyclo
-    - gofmt
-    - goimports
-    - golint
+    - godox
     - goprintffuncname
-    - gosimple
     - govet
+    - intrange
     - ineffassign
-    - interfacer
     - misspell
+    - noctx
     - nolintlint
-    - rowserrcheck
-    - scopelint
+    - revive
     - staticcheck
-    - structcheck
-    - stylecheck
-    - typecheck
+    - testifylint
     - unconvert
     - unparam
     - unused
-    - varcheck
     - whitespace
-
-issues:
-  # Excluding configuration per-path, per-linter, per-text and per-source
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - gomnd
-    - linters:
-        - stylecheck
-      text: "ST1000:"
-    # https://github.com/go-critic/go-critic/issues/926
-    - linters:
-        - gocritic
-      text: "unnecessaryDefer:"
-
-linters-settings:
-  funlen:
-    lines: 66
-    statements: 40
-
