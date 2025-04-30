@@ -23,12 +23,19 @@ archives:
       {{- else }}{{ .Arch }}{{ end }}
       {{- if .Arm }}v{{ .Arm }}{{ end -}}
 checksum:
-  name_template: 'checksums.txt'
+  name_template: "checksums.txt"
 snapshot:
   name_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
     exclude:
-      - '^docs:'
-      - '^test:'
+      - "^docs:"
+      - "^test:"
+release:
+  github:
+    owner: silenceper
+    name: "{{ .ProjectName }}"
+  prerelease: auto
+  draft: false
+  name_template: "{{ .Tag }}"
