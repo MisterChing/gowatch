@@ -14,26 +14,39 @@ everytime you save a Go or template file.
 
 ## Installation
 
-> If you already have `gowatch` installed, updating `gowatch` is simple:
+There are two ways to install `gowatch`:
 
-```
-go get -u github.com/silenceper/gowatch
-```
-
-To install: `gowatch`
-
-1. Use the `go insall` command:
+### 1. Install via Go
 
 ```go
 go install github.com/silenceper/gowatch@latest
 ```
 
-2. Add `gowatch` binary to PATH environment variable in your ~/.bashrc or
-   ~/.bash_profile file:
+After installation, you need to add `gowatch` binary to PATH environment variable in your ~/.bashrc or ~/.bash_profile file:
 
 ```sh
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
+```
+
+To update:
+```go
+go install github.com/silenceper/gowatch@latest
+```
+
+### 2. Install via Homebrew (macOS)
+
+```bash
+# Tap the repository
+brew tap silenceper/tap
+
+# Install gowatch
+brew install gowatch
+```
+
+To update:
+```bash
+brew upgrade gowatch
 ```
 
 ## Usage

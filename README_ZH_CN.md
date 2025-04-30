@@ -9,10 +9,40 @@ Go 程序热编译工具，提升开发效率
 
 
 ### 安装使用
-使用 `go insall` 命令安装 `gowatch`
+
+`gowatch` 提供两种安装方式：
+
+#### 1. 通过 Go 安装
 
 ```go
 go install github.com/silenceper/gowatch@latest
+```
+
+安装完成后，需要将 `gowatch` 添加到环境变量中。在 ~/.bashrc 或 ~/.bash_profile 文件中添加：
+
+```sh
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+```
+
+更新：
+```go
+go install github.com/silenceper/gowatch@latest
+```
+
+#### 2. 通过 Homebrew 安装（macOS）
+
+```bash
+# 添加 tap 仓库
+brew tap silenceper/tap
+
+# 安装 gowatch
+brew install gowatch
+```
+
+更新：
+```bash
+brew upgrade gowatch
 ```
 
 安装完成之后，即可使用`gowatch`命令，在当前文件执行:
@@ -74,7 +104,7 @@ build_args:
 envs:
     - a=b
 
-# 是否监听 ‘vendor’ 文件夹下的文件改变
+# 是否监听 'vendor' 文件夹下的文件改变
 vendor_watch: false
 
 # 不需要监听的目录名字
@@ -104,7 +134,7 @@ log_level: "debug"
 
 ## 微信公众号
 ![关注公众号入群交流](https://silenceper.oss-cn-beijing.aliyuncs.com/qrcode/qr_code_study_program_258.jpg)
->关注公众号并回复“入群”
+>关注公众号并回复"入群"
 
 
 >Inspired by [bee](https://github.com/beego/bee)
