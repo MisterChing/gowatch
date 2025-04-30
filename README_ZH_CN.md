@@ -1,6 +1,7 @@
 # gowatch
 ![Go](https://github.com/silenceper/gowatch/workflows/Go/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/silenceper/gowatch)](https://goreportcard.com/report/github.com/silenceper/gowatch)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/silenceper/gowatch)](https://pkg.go.dev/github.com/silenceper/gowatch)
 
 
 Go 程序热编译工具，提升开发效率
