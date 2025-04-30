@@ -49,6 +49,7 @@ brews:
     repository:
       owner: silenceper
       name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     commit_author:
       name: goreleaserbot
       email: bot@goreleaser.com
@@ -56,4 +57,4 @@ brews:
     install: |
       bin.install "gowatch"
     test: |
-      system "#{bin}/gowatch --version"
+      system "#{bin}/gowatch -v"
