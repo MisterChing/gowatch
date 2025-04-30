@@ -1,3 +1,4 @@
+// Package main provides a file watcher and auto-build tool for Go applications
 package main
 
 import (

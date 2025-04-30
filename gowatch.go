@@ -65,9 +65,9 @@ func NewWatcher(paths []string, files []string) {
 						Autobuild(files)
 					}()
 				}
-			case err := <-watcher.Errors:
-				log.Errorf("%v", err)
-				log.Warnf(" %s\n", err.Error()) // No need to exit here
+			case e := <-watcher.Errors:
+				log.Errorf("%v", e)
+				log.Warnf(" %s\n", e.Error()) // No need to exit here
 			}
 		}
 	}()
@@ -91,6 +91,7 @@ func getFileModTime(path string) int64 {
 		log.Errorf("Fail to open file[ %s ]\n", err)
 		return time.Now().Unix()
 	}
+	//nolint:errcheck
 	defer f.Close()
 
 	fi, err := f.Stat()
@@ -200,9 +201,9 @@ func Kill() {
 func killAllProcesses(pid int) (err error) {
 	hasAllKilled := make(chan bool)
 	go func() {
-		pids, err := psTree(pid)
-		if err != nil {
-			log.Fatalf("getting all sub processes error: %v\n", err)
+		pids, e := psTree(pid)
+		if e != nil {
+			log.Fatalf("getting all sub processes error: %v\n", e)
 			return
 		}
 		log.Debugf("main pid: %d", pid)
