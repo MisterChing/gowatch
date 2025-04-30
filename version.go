@@ -2,8 +2,14 @@ package main
 
 import "fmt"
 
-const version = "1.5.5"
+var (
+	version = "dev"
+    commit  = "none"
+    date    = "unknown"
+)
 
 func printVersion() {
-	fmt.Println(version)
+	fmt.Printf("Version: %s\n", version)
+	fmt.Printf("Commit: %s\n", commit)
+	fmt.Printf("Date: %s\n", date)
 }
