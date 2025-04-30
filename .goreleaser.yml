@@ -27,7 +27,7 @@ archives:
 checksum:
   name_template: "checksums.txt"
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-next"
 changelog:
   sort: asc
   filters:
@@ -41,3 +41,19 @@ release:
   prerelease: auto
   draft: false
   name_template: "{{ .Tag }}"
+brews:
+  - name: gowatch
+    homepage: "https://github.com/silenceper/gowatch"
+    description: "A command line tool that builds and (re)starts your Go program when it detects file changes"
+    license: "MIT"
+    repository:
+      owner: silenceper
+      name: homebrew-tap
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    directory: Formula
+    install: |
+      bin.install "gowatch"
+    test: |
+      system "#{bin}/gowatch --version"
