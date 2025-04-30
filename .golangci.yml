@@ -1,86 +1,38 @@
+version: "2"
+run:
+  # default concurrency is a available CPU number
+  concurrency: 4
+  # timeout for analysis, e.g. 30s, 5m, default is 1m
+  deadline: 10m
 linters:
-  # please, do not use `enable-all`: it's deprecated and will be removed soon.
-  # inverted configuration with `enable-all` and `disable` is not scalable during updates of golangci-lint
-  disable-all: true
+  default: none
+  # This list of linters is not a recommendation (same thing for all this configuration file).
+  # We intentionally use a limited set of linters.
+  # See the comment on top of this file.
   enable:
     - bodyclose
+    - copyloopvar
     - dogsled
     - dupl
     - errcheck
+    - errorlint
     - funlen
+    - gocheckcompilerdirectives
     - goconst
     - gocritic
     - gocyclo
-    - gofmt
-    - goimports
+    - godox
     - goprintffuncname
-    - gosimple
     - govet
+    - intrange
     - ineffassign
     - misspell
+    - noctx
     - nolintlint
-    - rowserrcheck
+    - revive
     - staticcheck
-    - stylecheck
-    - typecheck
+    - testifylint
     - unconvert
     - unparam
     - unused
     - whitespace
-    # 新增的 linters
-    - revive # 替代 golint
-    - prealloc # 切片预分配建议
-    - predeclared # 检查是否覆盖预声明的标识符
-    - copyloopvar # 替代 exportloopref，用于 Go 1.22+
-    - gomodguard # 检查 go.mod 依赖
-    - makezero # 检查 make() 调用
-
-run:
-  skip-dirs:
-    - vendor
-    - test
-
-output:
-  format: colored-line-number
-  print-issued-lines: true
-  print-linter-name: true
-
-severity:
-  default-severity: error
-  case-sensitive: false
-
-issues:
-  # Excluding configuration per-path, per-linter, per-text and per-source
-  exclude-rules:
-    - path: _test\.go
-      linters:
-        - gomnd
-        - funlen
-    - linters:
-        - stylecheck
-      text: "ST1000:"
-    # https://github.com/go-critic/go-critic/issues/926
-    - linters:
-        - gocritic
-      text: "unnecessaryDefer:"
-  exclude-dirs:
-    - vendor
-    - test
-  max-issues-per-linter: 0
-  max-same-issues: 0
-  exclude-use-default: false
-  fix: true
-
-linters-settings:
-  funlen:
-    lines: 66
-    statements: 40
-
-  gocyclo:
-    min-complexity: 15
-
-  govet:
-    enable-all: true
-
-  goimports:
-    local-prefixes: github.com/silenceper/gowatch
